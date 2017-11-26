@@ -1,0 +1,10 @@
+classes
+
+PageGetter
+getPage(url) -> htmlDom
+
+Parser
+parse_student_data(data) -> Array[][]
+
+Checker
+runCheck(rules) -> Array[]
