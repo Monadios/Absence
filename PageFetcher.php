@@ -3,7 +3,7 @@ class PageFetcher
 {
     public function fetch($url)
     {
-        return file_get_html($url);
+        return str_get_html(file_get_contents($url));
     }
 };
 ?>
