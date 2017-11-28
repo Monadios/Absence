@@ -1,0 +1,4 @@
+interface Formatter
+{
+    public function formatter()
+}

@@ -8,3 +8,6 @@ parse_student_data(data) -> Array[][]
 
 Checker
 runCheck(rules) -> Array[]
+
+
+add Student data class
