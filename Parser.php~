@@ -1,0 +1,12 @@
+<?php
+class Parser
+{
+    private $student_data = NULL;
+
+
+    public function parse_student_data($data)
+    {
+        
+    }
+}
+?>
