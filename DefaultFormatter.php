@@ -5,7 +5,7 @@ class DefaultFormatter extends I_Formatter
 {
     public function format()
     {
-        return $this->data;
+        return var_export($this->data, true);
     }
 
     public function get_format()

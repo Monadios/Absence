@@ -1,5 +1,16 @@
 <?php
 
+session_start();
+
+if(!empty($_SESSION)){
+    foreach($_SESSION as $key=>$e){
+        if(preg_match("/.*error/", $key)){
+            echo "<h1>Error</h1>$key : $e <br>";
+        }
+    }
+    session_unset(); //der findes nok en bedre måde at gøre det på
+}
+
 echo <<<END
 <head>
  <link rel="stylesheet" type="text/css" href="change.css"/>

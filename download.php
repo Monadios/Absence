@@ -1,24 +1,29 @@
 <?php
 
 
-//Få relevant data fra POST request eller returner til forrig side
-if(isset($_POST["table_data"])){
-    $content = $_POST["table_data"];
+session_start();
+
+//Få relevant data fra SESSION eller returner til forrig side
+if(isset($_SESSION["data"])){
+    $content = $_SESSION["data"];
 }else{
+    $_SESSION["data_error"] = true;
     header("Location: index.php");
     exit;
 }
 
-if(isset($_POST["class"])){
-    $class_name = $_POST["class"];
+if(isset($_SESSION["class"])){
+    $class_name = $_SESSION["class"];
 }else{
+    $_SESSION["class_error"] = true;
     header("Location: index.php");
     exit;
 }
 
-if(isset($_POST["format"])){
-    $format = $_POST["format"];
+if(isset($_SESSION["format"])){
+    $format = $_SESSION["format"];
 }else{
+    $_SESSION["format_error"] = true;
     header("Location: index.php");
     exit;
 }
@@ -32,5 +37,5 @@ header('Expires: 0');
 header('Pragma: public');
 
 //Download indhold
-echo $content;
+echo( $content);
 ?>

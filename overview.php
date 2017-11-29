@@ -8,14 +8,14 @@ echo <<<DOC
 <script>
 function load_new_content(){
      var selected_option_value=$("#format_select option:selected").val();
-     $.post("prepare.php", {format: selected_option_value,
-                            data: 0},
+     $.post("overview.php", {format: selected_option_value},
          function(data){
          }
      );
 } 
 </script>
 DOC;
+session_start();
 
 require("simple_html_dom.php");
 require("PageFetcher.php");
@@ -65,14 +65,25 @@ echo "<h2>$class_name</h2>";
 
 echo $formatted;
 
-echo '<form action="/download.php" method="post">';
+
+if(!empty($_POST)){
+    $format = $_POST["format"];
+    $formatter = $generator->createFormatter($filtered, $format);
+    $_SESSION["data"] = $formatter->format();
+    $_SESSION["class"] = $class_name;
+    $_SESSION["format"] = $formatter->get_format();
+    header("Location: download.php");
+}
+
+
+echo '<form action="/overview.php" method="post">';
 echo "<input type='hidden' name='table_data' value='$formatted'/>";
 echo "<input type='hidden' name='class' value='$class_name'/>";
 echo "<input name='blah' id='submit_btn' type='submit' value='Download Oversigt'/> ";
 echo <<<END
 <h3>Vælg format</h3>
 <select id=format_select name="format" onchange='load_new_content()'>
-  <option value="html">html</option>
+  <option value="table">html</option>
   <option value="json">json</option>
   <option value="txt">txt</option>
   <option value="csv">csv</option>
