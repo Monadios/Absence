@@ -1,5 +1,7 @@
 <?php
 
-echo json_decode($_POST["table_data"]);
+$x = json_decode($_POST["table_data"]);
+
+var_dump($x[0]);
 
 ?>

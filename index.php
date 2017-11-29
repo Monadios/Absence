@@ -14,6 +14,7 @@ require("Checker.php");
 require("Student.php");
 require("Formatter.php");
 require("TableFormatter.php");
+require("JsonFormatter.php");
 
 $fetcher = new PageFetcher();
 $parser  = new Parser();
@@ -26,7 +27,7 @@ $table = $dom->find("table[id='s_m_Content_Content_fravaertbl']")[0]->find("tr")
 $parsed = $parser->parse_student_data($table);
 
 $rule = function($student){
-    return $student->get_opgjort()["percent"] > 15;
+    return $student->get_opgjort()["percent"] > 5;
 };
 
 $analyzer = new Checker([$rule]);
@@ -37,10 +38,12 @@ $formatted = $formatter->format($filtered);
 
 echo $formatted;
 
-$json = json_encode($filtered[0]);
+$json_formatter = new JsonFormatter();
+
+$json = $json_formatter->format($filtered);
 
 echo '<form action="/download.php" method="post">';
-echo    "<button submit='submit' name='table_data' value='$json'> Download Oversigt</button>";
+echo    "<button submit='submit' name='table_data' value='$json'>Download Oversigt</button>";
 echo "</form>";
 
 ?>

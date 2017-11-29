@@ -22,7 +22,6 @@ DOC;
             
         }
         $output .= "</table>";
-                    
 
         return $output;
     }
