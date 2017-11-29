@@ -1,7 +1,7 @@
 <?php
-class TableFormatter implements I_Formatter
+class TableFormatter extends I_Formatter
 {
-    public function format($data)
+    public function format()
     {
         $output = '';
         $output .= '<table>';
@@ -11,7 +11,7 @@ class TableFormatter implements I_Formatter
 <th> period  </th>
 <th> year    </th>
 DOC;
-        foreach($data as $e){
+        foreach($this->data as $e){
             $output .= '
     <tr>
      <td>' . $e->get_name() . '</td>
@@ -24,6 +24,12 @@ DOC;
         $output .= "</table>";
 
         return $output;
+    }
+
+
+    public function get_format()
+    {
+        return "html";
     }
 }
 ?>

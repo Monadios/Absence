@@ -3,10 +3,10 @@ class Parser
 {
     public $student_data = NULL;
     private $labels_length = 3;
-    
+
+    //retunerer en Student objekt
     public function parse_student_data($table)
     {
-        //        $labels = parse_labels($table);
         $data = array_slice($table,3);
         $blah = [];
         foreach($data as $student){
@@ -34,11 +34,8 @@ class Parser
         return $blah;
     }
 
-    public function parse_labels($table)
-    {
-        $labels = array_slice($table,0,3);
-    }
-
+    //I stedet for at skulle bruge HTML scraping til at få fraværsprocenter,
+    //kan vi udregne dem fra modulerne
     private function parse_percent($modules)
     {
         $numbers = explode("/", $modules);

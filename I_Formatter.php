@@ -1,6 +1,13 @@
 <?php
-interface I_Formatter
+abstract class I_Formatter
 {
-    public function format($data);
+    protected $data;
+    
+    public function __construct($data){
+        $this->data = $data;
+    }
+    
+    abstract public function format();
+    abstract public function get_format();
 }
 ?>

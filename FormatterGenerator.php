@@ -1,5 +1,5 @@
 <?php
-class Formatter
+class FormatterGenerator
 {
     public function createFormatter($data, $type, $verbose=false)
     {

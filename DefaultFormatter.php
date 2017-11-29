@@ -1,9 +1,14 @@
 <?php
-class DefaultFormatter implements I_Formatter
+class DefaultFormatter extends I_Formatter
 {
-    public function format($data)
+    public function format()
     {
-        return $data;
+        return $this->data;
+    }
+
+    public function get_format()
+    {
+        return "txt";
     }
 }
 ?>
