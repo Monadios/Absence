@@ -1,4 +1,11 @@
 <?php
+/*
+  Denne klasse opererer ud fra et sæt regler disse regler er
+  repræsenteret som funktioner der tager imod en Student objekt
+  og returnerer sandt eller falsk baseret på om dens kriterer 
+  er mødt eller ej
+*/
+
 class Checker
 {
     private $rules = [];
@@ -9,6 +16,7 @@ class Checker
         $this->rules = $rules;
     }
 
+    //kør igennem reglerne og filtrer relevant data
     public function runCheck($data){
         $ret = [];
         foreach($this->rules as $rule){
@@ -26,6 +34,11 @@ class Checker
     public function addRule($rule)
     {
         array_push($rules, $rule);
+    }
+
+    public function getRules()
+    {
+        return $this->rules;
     }
 }
 ?>

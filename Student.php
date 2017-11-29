@@ -1,4 +1,9 @@
 <?php
+
+/*
+  Repræsenterer en elev
+*/
+
 class Student
 {
     public $student_name = NULL;

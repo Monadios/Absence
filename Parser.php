@@ -1,4 +1,6 @@
 <?php
+
+
 class Parser
 {
     public $student_data = NULL;
@@ -8,7 +10,7 @@ class Parser
     public function parse_student_data($table)
     {
         $data = array_slice($table,3);
-        $blah = [];
+        $students = [];
         foreach($data as $student){
             $student_data = $student->find("td");
             $name = $student_data[1]->plaintext;
@@ -28,10 +30,10 @@ class Parser
             ];
 
             $new_student = new Student($name, $period, $opgjort, $year);
-            array_push($blah, $new_student);
+            array_push($students, $new_student);
         }
 
-        return $blah;
+        return $students;
     }
 
     //I stedet for at skulle bruge HTML scraping til at få fraværsprocenter,

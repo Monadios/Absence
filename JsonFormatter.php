@@ -1,4 +1,7 @@
 <?php
+
+//Formaterer dataen i en JSON format
+
 class JsonFormatter extends I_Formatter
 {
     public function format()

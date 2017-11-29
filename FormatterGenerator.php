@@ -1,6 +1,12 @@
 <?php
+
+/*
+  Bruges til at lave instanser af diverse Formatter klasser
+*/
+
 class FormatterGenerator
 {
+    //Returnerer et Formatter objekt
     public function createFormatter($data, $type, $verbose=false)
     {
         //Tjek at al dataen er instanser af Student klassen
@@ -20,23 +26,23 @@ class FormatterGenerator
         //Vælg passende formatteringsklasse ud fra den efterspurgte formattypen
         switch($type)
         {
-        case FormatType::JSON:
+        case 'json':
             $verbose_type_output = "json";
             $formatter = new JsonFormatter($data);
             break;
 
-        case FormatType::TABLE:
+        case 'table':
             $verbose_type_output = "table";
             $formatter = new TableFormatter($data);
             break;
             
-        case FormatType::PLAIN:
+        case 'plain':
             $verbose_type_output = "plain";
             $formatter = new DefaultFormatter($data);
             break;
             
         default:
-            echo "default";
+            $verbose_type_output = "default";
             break;
         }
 

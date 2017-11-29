@@ -1,4 +1,6 @@
 <?php
+
+//Returnerer tekst i uformatteret tilstand
 class DefaultFormatter extends I_Formatter
 {
     public function format()
