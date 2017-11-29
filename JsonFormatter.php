@@ -1,5 +1,5 @@
 <?php
-class JsonFormatter implements Formatter
+class JsonFormatter implements I_Formatter
 {
     public function format($data)
     {

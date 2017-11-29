@@ -1,5 +1,5 @@
 <?php
-class TableFormatter implements Formatter
+class TableFormatter implements I_Formatter
 {
     public function format($data)
     {

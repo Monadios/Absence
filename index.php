@@ -13,12 +13,14 @@ require("Parser.php");
 require("Checker.php");
 require("Student.php");
 require("Formatter.php");
+require("FormatType.php");
+require("I_Formatter.php");
 require("TableFormatter.php");
 require("JsonFormatter.php");
 
 $fetcher = new PageFetcher();
 $parser  = new Parser();
-$formatter  = new TableFormatter();
+$formatter  = new Formatter();
 
 $dom = $fetcher->fetch("Sebastian_Spaqaj_Gustav_LectioFravaer.html");
 
@@ -34,13 +36,9 @@ $analyzer = new Checker([$rule]);
 
 $filtered = $analyzer->runCheck($parsed);
 
-$formatted = $formatter->format($filtered);
+$formatted = $formatter->format($filtered, FormatType::JSON);
 
-echo $formatted;
-
-$json_formatter = new JsonFormatter();
-
-$json = $json_formatter->format($filtered);
+;
 
 echo '<form action="/download.php" method="post">';
 echo    "<button submit='submit' name='table_data' value='$json'>Download Oversigt</button>";
