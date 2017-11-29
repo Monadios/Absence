@@ -6,25 +6,22 @@ if(isset($_POST["table_data"])){
     $content = $_POST["table_data"];
 }else{
     header("Location: index.php");
-   exit;
+    exit;
 }
 
 if(isset($_POST["class"])){
     $class_name = $_POST["class"];
 }else{
     header("Location: index.php");
-   exit;
+    exit;
 }
 
 if(isset($_POST["format"])){
     $format = $_POST["format"];
 }else{
     header("Location: index.php");
-   exit;
+    exit;
 }
-
-$generator = new FormatterGenerator();
-$formatter = $generator->createFormatter($filtered, FormatType::TABLE);
 
 header('Content-Description: File Transfer');
 header('Content-Type: application/octet-stream');

@@ -2,11 +2,6 @@ body {
     background-color: white;
 }
 
-h1 {
-    color: white;
-    text-align: center;
-}
-
 #config_tabel {
     float:right;
 }
@@ -18,6 +13,14 @@ p {
 
 input {
     display: flex; /* equal height of the children */
+}
+
+select {
+    font-size: inherit;
+    padding: 15px 32px;
+    box-shadow:none;
+    background:none;
+    border-radius: 0px;
 }
 
 #absence_field {
@@ -38,8 +41,6 @@ input {
     text-align: center;
     display: inline-block;
     font-size: 18px;
-    -moz-box-sizing: content-box; /* or `border-box` */
-    -webkit-box-sizing: content-box;
     box-sizing: content-box;
 }
 table, td, th {

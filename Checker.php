@@ -20,7 +20,10 @@ class Checker
     public function runCheck($data){
         $ret = [];
         foreach($this->rules as $rule){
-            $filtered = array_filter($data,$rule);
+            $filtered = array_filter($data,function($s) use ($rule) {
+                return $rule->check($s);
+            });
+
             foreach($filtered as $e){
                 if(!in_array($e, $ret,true)){
                     array_push($ret, $e);
