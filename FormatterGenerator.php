@@ -36,6 +36,11 @@ class FormatterGenerator
             $formatter = new TableFormatter($data);
             break;
             
+        case 'csv':
+            $verbose_type_output = "csv";
+            $formatter = new CsvFormatter($data);
+            break;
+
         case 'plain':
             $verbose_type_output = "plain";
             $formatter = new DefaultFormatter($data);

@@ -26,6 +26,7 @@ require("FormatterGenerator.php");
 require("I_Formatter.php");
 require("TableFormatter.php");
 require("JsonFormatter.php");
+require("CsvFormatter.php");
 require("DefaultFormatter.php");
 require("Rule.php");
 require("rules.php");
@@ -65,6 +66,9 @@ echo "<h2>$class_name</h2>";
 
 echo $formatted;
 
+foreach(array_values($filtered[0]->absence) as $value){
+    var_dump(array_values($value));
+}
 
 if(!empty($_POST)){
     $format = $_POST["format"];
